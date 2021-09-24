@@ -1,0 +1,20 @@
+#quizContainer {
+    display: none;
+}
+
+#answersContainer {
+    width: 100%;
+}
+
+#endScreenContainer {
+    display: none;
+}
+
+#answersContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#highscoresContainer {
+    display: none;
+}
