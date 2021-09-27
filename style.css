@@ -149,6 +149,32 @@ h4 {
     text-align: center;
 }
 
+.alert {
+    font-size: 3rem;
+    position: fixed;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+#outoftime {
+    display: none;
+    color: white;
+    background: red;
+}
+
+#penalty {
+    display: none;
+    color: white;
+    background: red;
+}
+
+#correct {
+    display: none;
+    color: white;
+    background: rgb(7, 161, 7);
+}
+
 @media screen and (max-width: 667px) {
     button {
         padding: 5px;
@@ -169,5 +195,11 @@ h4 {
     }
     #getName {
         width: 45vw;
+    }
+    button:hover {
+        transform: scale(1)
+    }
+    .alert {
+        font-size: 2rem;
     }
 }

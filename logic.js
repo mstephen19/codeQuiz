@@ -57,7 +57,7 @@ const theQuiz = [
       'querySelector("#description")',
     ],
     correctAnswer:
-      'document.querySelector("#description").innerHTML = "New text"',
+      'querySelector("#description")',
   },
   {
     questionNumber: 4,
@@ -305,28 +305,22 @@ function loadHighscores() {
     for (let i = 0; i < theHighScores.length; i++) {
       var newNameBox = document.createElement("div");
       var newScoreBox = document.createElement("div");
-
       highScoresBox.appendChild(newNameBox);
       highScoresBox.appendChild(newScoreBox);
-
       newNameBox.style.display = "flex";
       newNameBox.style.width = "50%";
       newNameBox.style.justifyContent = "center";
       newNameBox.style.alignItems = "center";
       newNameBox.style.paddingTop = "10px";
-
       newScoreBox.style.display = "flex";
       newScoreBox.style.width = "50%";
       newScoreBox.style.justifyContent = "center";
       newScoreBox.style.alignItems = "center";
       newScoreBox.style.paddingTop = "10px";
-
       var forName = document.createElement("h3");
       var forScore = document.createElement("h3");
-
       newNameBox.appendChild(forName);
       newScoreBox.appendChild(forScore);
-
       forName.textContent = theHighScores[i].userName;
       forScore.textContent = theHighScores[i].userScore;
     }
@@ -340,6 +334,10 @@ startButton.addEventListener("click", function () {
     secondsLeft = secondsLeft - 1;
     timerText.textContent = secondsLeft + "s";
     if (secondsLeft <= 0) {
+      document.getElementById('outoftime').style.display = "block";
+      setTimeout(function(){
+        document.getElementById('outoftime').style.display = "none";
+      }, 1000)
       toEndScreen();
       clearInterval(timerInterval);
       return;
@@ -360,10 +358,16 @@ answersElements.addEventListener("click", function (event) {
     if (event.target.textContent === theQuiz[questionIndex - 1].correctAnswer) {
       score = score + 1;
       secondsLeft = secondsLeft + 5;
-      //display you got it correct
+      document.getElementById('correct').style.display = "block";
+      setTimeout(function(){
+        document.getElementById('correct').style.display = "none";
+      }, 400)
     } else {
       secondsLeft = secondsLeft - 20;
-      //display you got it wrong
+      document.getElementById('penalty').style.display = "block";
+      setTimeout(function(){
+        document.getElementById('penalty').style.display = "none";
+      }, 400)
     }
     scoreCount.textContent = score;
     totalA.textContent = questionIndex + 1;
