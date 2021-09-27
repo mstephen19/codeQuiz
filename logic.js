@@ -250,9 +250,11 @@ const theQuiz = [
 ];
 
 document.getElementById("viewHighscores").style.display = "flex";
+highScoresBox.style.display = "none";
 
 // Set non-quiz items to display:none, load quiz items from object in array
 function loadQuizItems() {
+  document.getElementById("viewHighscores").style.display = "none";
   startScreen.style.display = "none";
   quizBox.style.display = "flex";
   questionElement.textContent = theQuiz[questionIndex].question;
@@ -286,26 +288,47 @@ function toEndScreen() {
 }
 
 function loadHighscores() {
-    document.getElementById("viewHighscores").style.display = "none";
   startScreen.style.display = "none";
   scoreNotifier.style.display = "none";
-  highScoresBox.style.display = "block";
+  highScoresBox.style.display = "flex";
   if (typeof localStorage.getItem("scores") == "object") {
+    document.getElementById('nameTitle').style.display = "none";
+    document.getElementById('scoreTitle').style.display = "none";
     var noScores = document.createElement("h1");
-    highScoresBox.appendChild(noScores);
     noScores.textContent = "You don't have any highscores yet!";
+    noScores.style.fontSize = "3rem";
+    noScores.style.fontWeight = "bold";
+    highScoresBox.appendChild(noScores);
   } else {
+    document.getElementById('nameTitle').style.display = "flex";
+    document.getElementById('scoreTitle').style.display = "flex";
     var theHighScores = JSON.parse(localStorage.getItem("scores"));
     for (let i = 0; i < theHighScores.length; i++) {
-      var newListBox = document.createElement("div");
-      highScoresBox.appendChild(newListBox);
-      newListBox.style.display = "flex";
-      newListBox.style.justifyContent = "space-around";
-      newListBox.style.width = "90%";
+
+      var newNameBox = document.createElement("div");
+      var newScoreBox = document.createElement("div");
+
+      highScoresBox.appendChild(newNameBox);
+      highScoresBox.appendChild(newScoreBox);
+
+      newNameBox.style.display = "flex";
+      newNameBox.style.width = "50%";
+      newNameBox.style.justifyContent = "center"
+      newNameBox.style.alignItems = "center"
+      newNameBox.style.paddingTop = "10px";
+
+      newScoreBox.style.display = "flex";
+      newScoreBox.style.width = "50%";
+      newScoreBox.style.justifyContent = "center"
+      newScoreBox.style.alignItems = "center"
+      newScoreBox.style.paddingTop = "10px";
+
       var forName = document.createElement("h3");
       var forScore = document.createElement("h3");
-      newListBox.appendChild(forName);
-      newListBox.appendChild(forScore);
+
+      newNameBox.appendChild(forName);
+      newScoreBox.appendChild(forScore);
+
       forName.textContent = theHighScores[i].userName;
       forScore.textContent = theHighScores[i].userScore;
     }
