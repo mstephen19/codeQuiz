@@ -249,6 +249,8 @@ const theQuiz = [
   },
 ];
 
+document.getElementById("viewHighscores").style.display = "flex";
+
 // Set non-quiz items to display:none, load quiz items from object in array
 function loadQuizItems() {
   startScreen.style.display = "none";
@@ -262,8 +264,8 @@ function loadQuizItems() {
 
 // Display end screen, hide non end-screen elements
 function toEndScreen() {
-  endScreen.style.display = "block";
-  quizBox.style.display = "flex";
+  endScreen.style.display = "flex";
+  quizBox.style.display = "none";
   submitNameButton.addEventListener("click", function () {
     let scoresObject = { userName: nameInput.value.trim(), userScore: score };
     //if it doesn't already exist, push the first score
@@ -284,6 +286,7 @@ function toEndScreen() {
 }
 
 function loadHighscores() {
+    document.getElementById("viewHighscores").style.display = "none";
   startScreen.style.display = "none";
   scoreNotifier.style.display = "none";
   highScoresBox.style.display = "block";
