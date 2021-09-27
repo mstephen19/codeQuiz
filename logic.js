@@ -15,8 +15,6 @@ const totalA = document.getElementById("totalAnswered");
 const nameInput = document.getElementById("getName");
 const submitNameButton = document.getElementById("submitbutton");
 
-const namesList = document.getElementById("namesList");
-const scoresList = document.getElementById("scoresList");
 const highScoresBox = document.getElementById("highscoresContainer");
 const scoreNotifier = document.getElementById("scoreContainer");
 
@@ -287,8 +285,29 @@ function toEndScreen() {
 }
 
 function loadHighscores() {
-    scoreNotifier.style.display = "none";
-    highScoresBox.style.display = "block";
+  startScreen.style.display = "none";
+  scoreNotifier.style.display = "none";
+  highScoresBox.style.display = "block";
+  if (typeof localStorage.getItem("scores") == "object") {
+    var noScores = document.createElement("h1");
+    highScoresBox.appendChild(noScores);
+    noScores.textContent = "You don't have any highscores yet!";
+  } else {
+    var theHighScores = JSON.parse(localStorage.getItem("scores"));
+    for (let i = 0; i < theHighScores.length; i++) {
+      var newListBox = document.createElement("div");
+      highScoresBox.appendChild(newListBox);
+      newListBox.style.display = "flex";
+      newListBox.style.justifyContent = "space-around";
+      newListBox.style.width = "90%";
+      var forName = document.createElement("h3");
+      var forScore = document.createElement("h3");
+      newListBox.appendChild(forName);
+      newListBox.appendChild(forScore);
+      forName.textContent = theHighScores[i].userName;
+      forScore.textContent = theHighScores[i].userScore;
+    }
+  }
 }
 
 // Click start - go to first question, start timer, go to end screen at end of timer
@@ -328,10 +347,8 @@ answersElements.addEventListener("click", function (event) {
   }
 });
 
-// onclick of view highscores button, load storeHighscores() and renderHighscores() function
-
-// renderHighscores()
-// namesList set innerHTML to ""
-// scoresList
-// var
-// create HTML elements
+document
+  .getElementById("viewHighscores")
+  .addEventListener("click", function () {
+    loadHighscores();
+  });
