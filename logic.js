@@ -21,7 +21,6 @@ const scoreNotifier = document.getElementById("scoreContainer");
 // Declare global variables
 let questionIndex = 0;
 let score = 0;
-let totalAnswered = 0;
 let secondsLeft = 121;
 
 let scoresArray = [];
@@ -52,10 +51,10 @@ const theQuiz = [
     question:
       'In order to change the content of an HTML element with an ID of "description," which syntax could be used?',
     answers: [
-      'document.querySelector("description").innerHTML = "New text"',
-      'document.getElement("#description").innerHTML = "New text"',
-      'document.createElement("description").textContent = "New text"',
-      'document.querySelector("#description").innerHTML = "New text"',
+      'querySelector("description")',
+      'getElement("#description")',
+      'createElement("description")',
+      'querySelector("#description")',
     ],
     correctAnswer:
       'document.querySelector("#description").innerHTML = "New text"',
@@ -292,19 +291,18 @@ function loadHighscores() {
   scoreNotifier.style.display = "none";
   highScoresBox.style.display = "flex";
   if (typeof localStorage.getItem("scores") == "object") {
-    document.getElementById('nameTitle').style.display = "none";
-    document.getElementById('scoreTitle').style.display = "none";
+    document.getElementById("nameTitle").style.display = "none";
+    document.getElementById("scoreTitle").style.display = "none";
     var noScores = document.createElement("h1");
     noScores.textContent = "You don't have any highscores yet!";
     noScores.style.fontSize = "3rem";
     noScores.style.fontWeight = "bold";
     highScoresBox.appendChild(noScores);
   } else {
-    document.getElementById('nameTitle').style.display = "flex";
-    document.getElementById('scoreTitle').style.display = "flex";
+    document.getElementById("nameTitle").style.display = "flex";
+    document.getElementById("scoreTitle").style.display = "flex";
     var theHighScores = JSON.parse(localStorage.getItem("scores"));
     for (let i = 0; i < theHighScores.length; i++) {
-
       var newNameBox = document.createElement("div");
       var newScoreBox = document.createElement("div");
 
@@ -313,14 +311,14 @@ function loadHighscores() {
 
       newNameBox.style.display = "flex";
       newNameBox.style.width = "50%";
-      newNameBox.style.justifyContent = "center"
-      newNameBox.style.alignItems = "center"
+      newNameBox.style.justifyContent = "center";
+      newNameBox.style.alignItems = "center";
       newNameBox.style.paddingTop = "10px";
 
       newScoreBox.style.display = "flex";
       newScoreBox.style.width = "50%";
-      newScoreBox.style.justifyContent = "center"
-      newScoreBox.style.alignItems = "center"
+      newScoreBox.style.justifyContent = "center";
+      newScoreBox.style.alignItems = "center";
       newScoreBox.style.paddingTop = "10px";
 
       var forName = document.createElement("h3");

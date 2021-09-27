@@ -75,7 +75,7 @@ h4 {
     background: rgb(194, 194, 194);
     font-size: 1.5rem;
     text-align: center;
-    width: 20vw;
+    width: 30vw;
     height: 10vh;
 }
 
@@ -126,6 +126,10 @@ button {
     padding: 10px;
     transition: all 0.2s linear;
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
@@ -139,4 +143,31 @@ button:active {
 
 p {
     font-size: 1.5rem;
+}
+
+h4 {
+    text-align: center;
+}
+
+@media screen and (max-width: 667px) {
+    button {
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+    #quizContainer {
+        height: 100vh;
+    }
+    #question {
+        font-size: 1.3rem;
+    }
+    #headerSpaceMobile {
+        width: 100%;
+        height: 100px;
+    }
+    #getName {
+        width: 45vw;
+    }
 }
