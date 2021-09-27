@@ -252,19 +252,18 @@ const theQuiz = [
 // Set non-quiz items to display:none, load quiz items from object in array
 function loadQuizItems() {
   startScreen.style.display = "none";
-  quizBox.style.display = "block";
+  quizBox.style.display = "flex";
   questionElement.textContent = theQuiz[questionIndex].question;
   for (let i = 0; i <= 3; i++) {
     answersElements.children[i].children[0].textContent =
       theQuiz[questionIndex].answers[i];
   }
-  //questionIndex++;
 }
 
 // Display end screen, hide non end-screen elements
 function toEndScreen() {
   endScreen.style.display = "block";
-  quizBox.style.display = "none";
+  quizBox.style.display = "flex";
   submitNameButton.addEventListener("click", function () {
     let scoresObject = { userName: nameInput.value.trim(), userScore: score };
     //if it doesn't already exist, push the first score
@@ -280,7 +279,7 @@ function toEndScreen() {
     setTimeout(function () {
       endScreen.style.display = "none";
       loadHighscores();
-    });
+    }, 100);
   });
 }
 
@@ -347,8 +346,6 @@ answersElements.addEventListener("click", function (event) {
   }
 });
 
-document
-  .getElementById("viewHighscores")
-  .addEventListener("click", function () {
+document.getElementById("viewHighscores").addEventListener("click", function () {
     loadHighscores();
   });
