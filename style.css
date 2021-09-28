@@ -1,205 +1,210 @@
 body {
-    background: #F9D5A7;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9d5a7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header {
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #FFB085;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffb085;
 }
 
 #alldiv {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #startScreenContainer {
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 #quizContainer {
-    display: none;
-    width: 100vw;
-    height: 65vh;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  display: none;
+  width: 100vw;
+  height: 65vh;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
 #question {
-    font-size: 2.5rem;
-    text-align: center;
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 #answersContainer {
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: space;
-    height: 40vh;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: space;
+  height: 40vh;
 }
 
 #endScreenContainer {
-    display: none;
-    width: 100vw;
-    height: 40vh;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  display: none;
+  width: 100vw;
+  height: 40vh;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
 h4 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 #getName {
-    background: rgb(194, 194, 194);
-    font-size: 1.5rem;
-    text-align: center;
-    width: 30vw;
-    height: 10vh;
+  background: rgb(194, 194, 194);
+  font-size: 1.5rem;
+  text-align: center;
+  width: 30vw;
+  height: 10vh;
 }
 
 #answersContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #highscoresContainer {
-    display: none;
-    width: 100%;
-    display: flex;
-    height: auto;
-    background: rgb(197, 197, 197);
-    flex-wrap: wrap;
-    height: auto;
-    align-items: center;
-    justify-content: center;
+  display: none;
+  width: 100%;
+  display: flex;
+  height: auto;
+  background: rgb(197, 197, 197);
+  flex-wrap: wrap;
+  height: auto;
+  align-items: center;
+  justify-content: center;
 }
 
-#nameTitle, #scoreTitle {
-    flex: 0 0 50%;
-    width: 50%;
-    height: 75px;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#nameTitle,
+#scoreTitle {
+  flex: 0 0 50%;
+  width: 50%;
+  height: 75px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #nameTitle {
-    background: rgb(197, 197, 197);
+  background: rgb(197, 197, 197);
 }
 #scoreTitle {
-    background: rgb(197, 197, 197);
+  background: rgb(197, 197, 197);
 }
 
 #line {
-    width: 90%;
-    height: 1px;
-    background: black;
+  width: 90%;
+  height: 1px;
+  background: black;
 }
 
 button {
-    font-size: 1.5rem;
-    background: #90AACB;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    transition: all 0.2s linear;
-    cursor: pointer;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  font-size: 1.5rem;
+  background: #90aacb;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 button:active {
-    background: black;
-    color: #90AACB;
+  background: black;
+  color: #90aacb;
 }
 
 p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 h4 {
-    text-align: center;
+  text-align: center;
 }
 
 .alert {
-    font-size: 3rem;
-    position: fixed;
-    font-weight: bold;
-    padding: 10px;
-    border: 2px solid black;
+  font-size: 3rem;
+  position: fixed;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px solid black;
 }
 
 #outoftime {
-    display: none;
-    color: white;
-    background: red;
+  display: none;
+  color: white;
+  background: red;
 }
 
 #penalty {
-    display: none;
-    color: white;
-    background: red;
+  display: none;
+  color: white;
+  background: red;
 }
 
 #correct {
-    display: none;
-    color: white;
-    background: rgb(7, 161, 7);
+  display: none;
+  color: white;
+  background: rgb(7, 161, 7);
+}
+
+#goBack {
+  display: none;
 }
 
 @media screen and (max-width: 667px) {
-    button {
-        padding: 5px;
-        font-size: 1.2rem;
-    }
-    p {
-        font-size: 1.2rem;
-    }
-    #quizContainer {
-        height: 100vh;
-    }
-    #question {
-        font-size: 1.3rem;
-    }
-    #headerSpaceMobile {
-        width: 100%;
-        height: 100px;
-    }
-    #getName {
-        width: 45vw;
-    }
-    button:hover {
-        transform: scale(1)
-    }
-    .alert {
-        font-size: 2rem;
-    }
+  button {
+    padding: 5px;
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  #quizContainer {
+    height: 100vh;
+  }
+  #question {
+    font-size: 1.3rem;
+  }
+  #headerSpaceMobile {
+    width: 100%;
+    height: 100px;
+  }
+  #getName {
+    width: 45vw;
+  }
+  button:hover {
+    transform: scale(1);
+  }
+  .alert {
+    font-size: 2rem;
+  }
 }
