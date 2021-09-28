@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mattReset.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="mattReset.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Code Quiz by Matt Stephens</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="alldiv">
-
-        <header>
-            <div id="highScoresBtnContainer">
-                <button id="viewHighscores">View Highscores</button>
-            </div>
-            <p>Time left: <span id="timer"></span></p>
-            <p>Question: <span id="totalAnswered">1</span>/20</p>
-        </header>
-        <div id="headerSpaceMobile"></div>
-        <div id="startScreenContainer">
-            <h1 class="title">Code Quiz</h1>
-            <p>You have 2 minutes. Earn a 5s time boost with a correct answer, lose 20s with an incorrect answer.</p>
-            <button id="startBtn">START</button>
-            <div>Created by <a href="https://github.com/mstephen19">Matt Stephens</a></div>
+      <header>
+        <div id="highScoresBtnContainer">
+          <button id="viewHighscores">View Highscores</button>
+          <button id="goBack">Back to Start</button>
         </div>
-        <div id="quizContainer">
-            <h2 id="question"></h2>
-            <div id="answersContainer">
-                <button id="answer1"><span class="answers"></span></button>
-                <button id="answer2"><span class="answers"></span></button>
-                <button id="answer3"><span class="answers"></span></button>
-                <button id="answer4"><span class="answers"></span></button>
-            </div>
-            <div id="scoreContainer">
-                <p>Correctly Answered: <span id="score">0</span></p>
-            </div>
+        <p>Time left: <span id="timer"></span></p>
+        <p>Question: <span id="totalAnswered">0</span>/20</p>
+      </header>
+      <div id="headerSpaceMobile"></div>
+      <div id="startScreenContainer">
+        <h1 class="title">Code Quiz</h1>
+        <p>
+          You have 2 minutes. Earn a 5s time boost with a correct answer, lose
+          20s with an incorrect answer.
+        </p>
+        <button id="startBtn">START</button>
+        <div>
+          Created by <a href="https://github.com/mstephen19">Matt Stephens</a>
         </div>
-        <div id="endScreenContainer">
-            <h4>Enter your name to save your score</h4>
-            <input id="getName" type="text">
-            <button id="submitbutton">Submit & View Highscores</button>
+      </div>
+      <div id="quizContainer">
+        <h2 id="question"></h2>
+        <div id="answersContainer">
+          <button id="answer1"><span class="answers"></span></button>
+          <button id="answer2"><span class="answers"></span></button>
+          <button id="answer3"><span class="answers"></span></button>
+          <button id="answer4"><span class="answers"></span></button>
         </div>
-        <div id="highscoresContainer">
-            <div id="nameTitle">Name</div>
-            <div id="scoreTitle">Score</div>
-            <div id="line"></div>
+        <div id="scoreContainer">
+          <p>Correctly Answered: <span id="score">0</span></p>
         </div>
-        <div id="outoftime" class="alert">Ran out of time!</div>
-        <div id="correct" class="alert">+5 Seconds</div>
-        <div id="penalty" class="alert">-20 Seconds</div>
+      </div>
+      <div id="endScreenContainer">
+        <h4>Enter your name to save your score</h4>
+        <input id="getName" type="text" />
+        <button id="submitbutton">Submit & View Highscores</button>
+      </div>
+      <div id="highscoresContainer">
+        <div id="nameTitle">Name</div>
+        <div id="scoreTitle">Score</div>
+        <div id="line"></div>
+      </div>
+      <div id="outoftime" class="alert">Ran out of time!</div>
+      <div id="correct" class="alert">+5 Seconds</div>
+      <div id="penalty" class="alert">-20 Seconds</div>
     </div>
     <script src="logic.js"></script>
-</body>
+  </body>
 </html>

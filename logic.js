@@ -46,6 +46,7 @@ const theQuiz = [
     answers: ["<link>", "<script>", "<js>", "<scripts>"],
     correctAnswer: "<script>",
   },
+
   {
     questionNumber: 3,
     question:
@@ -56,8 +57,7 @@ const theQuiz = [
       'createElement("description")',
       'querySelector("#description")',
     ],
-    correctAnswer:
-      'querySelector("#description")',
+    correctAnswer: 'querySelector("#description")',
   },
   {
     questionNumber: 4,
@@ -253,6 +253,14 @@ highScoresBox.style.display = "none";
 
 // Set non-quiz items to display:none, load quiz items from object in array
 function loadQuizItems() {
+  document.getElementById("goBack").style.display = "flex";
+  //super lazy bug fix below
+  if (questionIndex === theQuiz.length) {
+    totalA.textContent = questionIndex;
+  } else {
+    totalA.textContent = questionIndex + 1;
+  }
+  //
   document.getElementById("viewHighscores").style.display = "none";
   startScreen.style.display = "none";
   quizBox.style.display = "flex";
@@ -263,10 +271,15 @@ function loadQuizItems() {
   }
 }
 
+function lazyBugFix() {
+  quizBox.innerHTML = "";
+  quizBox.style.height = "0px";
+}
+
 // Display end screen, hide non end-screen elements
 function toEndScreen() {
+  lazyBugFix();
   endScreen.style.display = "flex";
-  quizBox.style.display = "none";
   submitNameButton.addEventListener("click", function () {
     let scoresObject = { userName: nameInput.value.trim(), userScore: score };
     //if it doesn't already exist, push the first score
@@ -287,6 +300,8 @@ function toEndScreen() {
 }
 
 function loadHighscores() {
+  document.getElementById("goBack").style.display = "flex";
+  lazyBugFix();
   startScreen.style.display = "none";
   scoreNotifier.style.display = "none";
   highScoresBox.style.display = "flex";
@@ -334,10 +349,10 @@ startButton.addEventListener("click", function () {
     secondsLeft = secondsLeft - 1;
     timerText.textContent = secondsLeft + "s";
     if (secondsLeft <= 0) {
-      document.getElementById('outoftime').style.display = "block";
-      setTimeout(function(){
-        document.getElementById('outoftime').style.display = "none";
-      }, 1000)
+      document.getElementById("outoftime").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("outoftime").style.display = "none";
+      }, 1000);
       toEndScreen();
       clearInterval(timerInterval);
       return;
@@ -358,22 +373,28 @@ answersElements.addEventListener("click", function (event) {
     if (event.target.textContent === theQuiz[questionIndex - 1].correctAnswer) {
       score = score + 1;
       secondsLeft = secondsLeft + 5;
-      document.getElementById('correct').style.display = "block";
-      setTimeout(function(){
-        document.getElementById('correct').style.display = "none";
-      }, 400)
+      document.getElementById("correct").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("correct").style.display = "none";
+      }, 400);
     } else {
       secondsLeft = secondsLeft - 20;
-      document.getElementById('penalty').style.display = "block";
-      setTimeout(function(){
-        document.getElementById('penalty').style.display = "none";
-      }, 400)
+      document.getElementById("penalty").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("penalty").style.display = "none";
+      }, 400);
     }
     scoreCount.textContent = score;
-    totalA.textContent = questionIndex + 1;
   }
 });
 
-document.getElementById("viewHighscores").addEventListener("click", function () {
+document
+  .getElementById("viewHighscores")
+  .addEventListener("click", function () {
     loadHighscores();
+    document.getElementById("viewHighscores").style.display = "none";
   });
+
+document.getElementById("goBack").addEventListener("click", function () {
+  location.reload();
+});
